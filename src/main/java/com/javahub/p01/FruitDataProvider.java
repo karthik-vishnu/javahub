@@ -24,8 +24,7 @@ public class FruitDataProvider {
 		Fruit data3 = new Fruit("183", Type.Orange, Color.Orange, 32);
 		Fruit data4 = new Fruit("128", Type.Orange, Color.Orange, 42);
 		Fruit data5 = new Fruit("129", Type.Mango, Color.Yellow, 20);
-		Fruit data6 = new Fruit("214", Type.Apple, Color.Red, 55);
-		Fruit data7 = new Fruit("435", Type.Orange, Color.Orange, 9);
+		Fruit data6 = new Fruit("435", Type.Orange, Color.Orange, 9);
 		
 		List<Fruit> fruitsList = new ArrayList<Fruit>();
 		fruitsList.add(data1);
@@ -34,7 +33,6 @@ public class FruitDataProvider {
 		fruitsList.add(data4);
 		fruitsList.add(data5);
 		fruitsList.add(data6);
-		fruitsList.add(data7);
 		
 		return fruitsList;
 	}

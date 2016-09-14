@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import com.javahub.p01.Fruit;
 
-public class SizeComparator implements Comparator<Fruit> {
+public class ColorComparator implements Comparator<Fruit> {
 
 	public int compare(Fruit fruit1, Fruit fruit2) {
 		String fruit1Color = fruit1.getColor().toString();

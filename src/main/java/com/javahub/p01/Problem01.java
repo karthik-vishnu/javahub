@@ -16,11 +16,6 @@ public class Problem01 {
 		System.out.println("MIN ID "+fruitsList.get(0).getId()+
 				"\nMAX ID "+fruitsList.get(fruitsList.size()-1).getId());
 		
-		//This will display all the values in the list. If the size is same it will sort  by its type
-		for(int i=0; i<fruitsList.size(); i++){
-			System.out.println("id "+fruitsList.get(i).getId()+ "size "
-					+fruitsList.get(i).getSize()+ "Type "+fruitsList.get(i).getType());
-		}
 	}
 	
     public static void main( String[] args ) {

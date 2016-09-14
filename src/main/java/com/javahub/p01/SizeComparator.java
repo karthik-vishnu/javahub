@@ -8,12 +8,6 @@ public class SizeComparator implements Comparator<Fruit> {
 		Integer fruit1Size = fruit1.getSize();
 		Integer fruit2Size = fruit2.getSize();
 		
-		if(fruit1Size == fruit2Size){
-			String fruit1Type = fruit1.getType().toString();
-			String fruit2Type = fruit2.getType().toString();
-			
-			return fruit1Type.compareTo(fruit2Type);
-		}
 		return fruit1Size.compareTo(fruit2Size);
 	}
 }
