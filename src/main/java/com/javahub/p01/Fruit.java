@@ -7,7 +7,7 @@ public class Fruit {
 	private Enum<Color> color;
 	private int size;
 	
-	public Fruit(String id, Enum<Type> type, Enum<Color> color, int size){
+	public Fruit(String id, Enum<Type> type, Enum<Color> color, int size) {
 		this.id = id;
 		this.type = type;
 		this.color = color;
