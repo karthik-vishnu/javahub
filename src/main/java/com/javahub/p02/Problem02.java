@@ -5,32 +5,51 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.javahub.p01.Color;
 import com.javahub.p01.Fruit;
 import com.javahub.p01.FruitDataProvider;
-import com.javahub.p01.SizeComparator;
-import com.javahub.p01.Type;
 
 public class Problem02 {
-
+	Map<String, Integer> map;
+	
 	public void groupByColor() {
 		FruitDataProvider fruitDataProvider = new FruitDataProvider();
 		List<Fruit> fruitList = fruitDataProvider.dataProvider1();
-		
-		Collections.sort(fruitList, new SizeComparator());
-		System.out.println("Minimum size of fruit "+fruitList.get(0).getSize()+ 
-				"\nMaximum size of fruit "+fruitList.get(fruitList.size()-1).getSize());
-		
 		Collections.sort(fruitList, new ColorComparator());
-		for(Color clr:Color.values()){
+		map = new HashMap<String, Integer>();
+		
+		findMinMaxNumberOfFruits(fruitList);
+		findMinMaxSizeOfFruit(fruitList);
+	}
+	
+	public void findMinMaxNumberOfFruits(List<Fruit> listOfFruits) {
+		for(Color color:Color.values()) {
 			int count = 0;
-			for(int i=0; i<fruitList.size(); i++){
-				if(clr == fruitList.get(i).getColor()){
+			for(int i=0; i<listOfFruits.size(); i++) {
+				if(color == listOfFruits.get(i).getColor()) {
 					++count;
 				}
 			}
-			System.out.println("Color "+clr+" count "+count );
+			map.put(color.toString(), count);
+		}
+		List<Entry<String, Integer>> listofmap = new ArrayList<Entry<String,Integer>>(map.entrySet());
+		Collections.sort(listofmap, new com.javahub.p02.SizeComparator());
+		System.out.println("MIN : Color = "+listofmap.get(0).getKey()+ " Size = "+listofmap.get(0).getValue()
+				+"\nMAX : Color = "+listofmap.get(listofmap.size()-1).getKey()+ " Size = "+listofmap.get(listofmap.size()-1).getValue());
+	}
+	
+	public void findMinMaxSizeOfFruit(List<Fruit> listOfFruits) {
+		List<Integer> list;
+		for(Color color : Color.values()) {
+			list = new ArrayList<Integer>();
+			for(int i=0; i<listOfFruits.size(); i++){
+				if(color == listOfFruits.get(i).getColor()){
+					list.add(listOfFruits.get(i).getSize());
+				}
+			}
+			System.out.println("COLOR : "+color+" MIN = "+list.get(0)+" MAX = "+list.get(list.size()-1));
 		}
 	}
 	
